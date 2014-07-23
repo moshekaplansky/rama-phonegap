@@ -15,7 +15,6 @@ function showDiv(div_to_show)
 
 function piece(title, audio_on_load, image_on_load) {
 	this.title = title;
-	this.artist = artist;
     this.audio_on_load = audio_on_load;
     this.image_on_load = image_on_load;
     categories = ["about the artist", "about the piece"];
