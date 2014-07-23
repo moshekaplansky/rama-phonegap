@@ -135,14 +135,6 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-        <div> Speech
-          <button onclick="sp.recognize()">Recognize</button>
-          
-        </div>
-        <div id="current_title">Starry Night</div>
-          <img src="" id="current_painting"></img>
-
-
 
   <div data-role="page" class="pages" id="home" data-theme="b">  
   <!-- Header of all pages ... always loads no matter what page -->
@@ -151,9 +143,11 @@
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
-      </a>
+      </a>  
+        <div id="current_title">Starry Night</div>
+          <img src="" id="current_painting"></img>
       <a href="tel:1234567890">
-        <button type="button" class="btn btn-default btn-lg pull-right" >
+        <button type="button"class="btn btn-default btn-lg pull-right" >
           <span class="glyphicon glyphicon-phone-alt"></span>
     </button>
       </a>
@@ -249,7 +243,7 @@
 </div>
       <br/>
       
-      <br/><img id="micbtn" src="img/mic-btn.png" draggable="false"></img>
+      <br/><button onclick="sp.recognize()"><img id="micbtn" src="img/mic-btn.png" draggable="false"></img></button>
     </div>
   </div>
   <!-- /Welcome screen -->
