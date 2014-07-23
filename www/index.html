@@ -192,16 +192,16 @@
   </script>
   <!-- End SlidesJS Required -->
         <!--Chatbox and mic images-->
-    <div align="center">
+    <div align="center" id="chatbox">
       <img src="img/chatbox2.png" class="img-reponsive" style="width:80%;height:auto;opacity:.7">
       <div>
         <audio id="about-the-artist" style="visibility:hidden" controls>
-<source src="https://s3.amazonaws.com/RamaAudio/aboutartist_activeyears.wav">
+<source src="">
   You browser is bad
   </audio>
   
 <audio id="about-the-piece" style="visibility:hidden" controls>
-  <source src="https://s3.amazonaws.com/RamaAudio/aboutpiece_title.wav">
+  <source src="">
   You browser is bad
   </audio>
   
@@ -211,34 +211,35 @@
   </audio>
   
 <audio id="brandeis-archives" style="visibility:hidden" controls>
-  <source src="f.wav">
+  <source src="">
   You browser is bad
   </audio>
   
     <b><u><font size="40" color="blue">
-        <span onmouseover="this.style.cursor='pointer'" id="original_categories" style="visibility:visible; position:fixed; left: 10px; top:150px" >
-<div onclick="handler.load('about the artist');">About the artist</div>
-<div onclick="handler.load('about the piece');">About the piece</div>
-<div onclick="handler.load('more information from the brandeis archives');">More information from the Brandeis Archives</div>
-</span>
-    
-    <span onmouseover="this.style.cursor='pointer'" style="visibility:hidden; position:fixed; left: 10px; top:150px" id="artist_categories">
-          <div class="back" onclick="hideDivs(); showDiv('original');">Back</div>
-<div onclick="handler.load('biography');">Biography</div>
-<div onclick="handler.load('career');">Career</div>
+     
+  <span onmouseover="this.style.cursor='pointer'" id="paintings_categories" style="visibility:visible;" >
+<div onclick="load('blue white');">Blue White</div>
+<div onclick="load('forget it forget me');">Forget it! Forget me!</div>
 </span>
 
-<span onmouseover="this.style.cursor='pointer'" style="visibility:hidden; position:fixed; left: 10px; top:150px" id="piece_categories">
-      <div class="back" onclick="hideDivs(); showDiv('original');">Back</div>
 
-<div onclick="handler.load('style');">Style</div>
-<div onclick="handler.load('medium');">Medium</div>
+		<span onmouseover="this.style.cursor='pointer'" id="original_categories" style="visibility:hidden;" >
+            <div class="back" onclick="hideDivs(); showDiv('paintings'); document.getElementById('current').style.visibility ='hidden';"> <--Back</div>
+<div onclick="load('about the artist');">About the artist</div>
+<div onclick="load('about the piece');">About the piece</div>
+</span>
+	
+	<span onmouseover="this.style.cursor='pointer'" style="visibility:hidden;" id="artist_categories">
+		  <div class="back" onclick="hideDivs(); showDiv('original');"> <--Back</div>
+<div onclick="load('biography');">Biography</div>
+<div onclick="load('career');">Career</div>
 </span>
 
-<span onmouseover="this.style.cursor='pointer'" style="visibility:hidden; position:fixed; left: 10px; top:150px" id="archive_categories">
-<div onclick="handler.load('hear the artist')">Hear from the artist</div>
-  <div class="back" onclick="hideDivs(); showDiv('original');">Back</div>
+<span onmouseover="this.style.cursor='pointer'" style="visibility:hidden;" id="piece_categories">
+	  <div class="back" onclick="hideDivs(); showDiv('original');"><-- Back</div>
 
+<div onclick="load('style');">Style</div>
+<div onclick="load('medium');">Medium</div>
 </span>
 </b></u></font> 
 </div>
