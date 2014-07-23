@@ -74,13 +74,19 @@ load: function(result)
 							hideDivs();
 							if (result.match(utterance) == "about the artist"){
 								document.getElementById("about-the-artist").src = current_piece.artist.audio_on_load;
-								document.getElementById("about-the-artist").play();
 								showDiv("artist");
+								document.getElementById("career").src = current_piece.artist_info.career;								document.getElementById("biography").src = current_piece.artist_info.biography;
+								document.getElementById("biography").src = current_piece.artist_info.biography;
+								document.getElementById("about-the-artist").play();
+
 							}
 							else if (result.match(utterance) == "about the piece") {
 								document.getElementById("about-the-piece").src = current_piece.piece_info.audio_on_load;
-								document.getElementById("about-the-piece").play();
 								showDiv("piece");
+								document.getElementById("style").src = current_piece.piece_info.style;
+								document.getElementById("medium").src = current_piece.piece_info.medium;
+								document.getElementById("about-the-piece").play();
+
 							}
 						}
 					});
@@ -91,17 +97,12 @@ load: function(result)
 						alert(prop);
 						if (result.search(prop) > -1)
 						{
-							if (result.match(prop) {
-								document.getElementById("subcategory").src = current_piece.artist_info.name;
-								document.getElementBy
-							}
-							else if (result.match(prop) == "biography"){
-								document.getElementById("subcategory").src = current_piece.artist_info.biography;
-								document.getElementById("subcategory").play();
+							
+							if (result.match(prop) == "biography"){
+								document.getElementById("biography").play();
 							}
 							else if (result.match(prop) == "career") {
-								document.getElementById("subcategory").src = current_piece.artist_info.career;
-								document.getElementById("subcategory").play();
+								document.getElementById("career").play();
 							}
 						}
 					}
@@ -113,15 +114,13 @@ load: function(result)
 						if (result.search(prop) > -1)
 						{
 							if (result.match(prop) == "style"){
-								document.getElementById("subcategory").src = current_piece.piece_info.style;
-								document.getElementById("subcategory").play();
+								document.getElementById("style").play();
 							}
 							else if (result.match(prop) == "medium") {
 								alert(utterance);
-								document.getElementById("subcategory").src = current_piece.piece_info.medium;
-								document.getElementById("subcategory").play();
+								document.getElementById("medium").play();
 							}
-							else if (result.match(prop) == "year") {
+							/*else if (result.match(prop) == "year") {
 								alert(utterance);
 								document.getElementById("subcategory").src = current_piece.piece_info.year;
 								document.getElementById("subcategory").play();
@@ -140,7 +139,7 @@ load: function(result)
 								alert(utterance);
 								document.getElementById("subcategory").src = current_piece.piece_info.title;
 								document.getElementById("subcategory").play();
-							}
+							}*/
 						
 							
 						}
