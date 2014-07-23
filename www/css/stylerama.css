@@ -1,0 +1,70 @@
+li{
+	font-size:20px;
+	display: hidden;
+}
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:35px;
+   width:100%;
+   text-align:center;
+   background:#222223;
+}
+
+#micbtn{
+bottom:35px;
+   width: 50px;
+   height: 50px;
+}
+
+#chatbox{
+	margin: 10px 13px 10px;
+	opacity: 0.4;
+}
+
+
+#title{
+	font-size:20px;
+	text-align:center;
+}
+
+.ui-page, .ui-content, .ui-btn {
+	background: transparent !important;
+}
+
+td{
+	padding: 5px;
+}
+
+body {
+    background-attachment:fixed;
+	background-image:url('../img/roseBlurred.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+	color:white;
+}
+#page-title{
+	margin: 3px;
+}
+#about-view{
+	width: 90%;
+	font-size: 16px;
+	background-color:white;
+	opacity:.7;
+	color:black;
+	position: relative;
+	margin:0 auto;
+	border: 10px solid;
+	border-color: white;
+	line-height: 1.4em;
+}
+.square {
+    background-image: url('../img/forgetItForgetMe.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+    width: 30vw;
+    height: 30vw;
+}

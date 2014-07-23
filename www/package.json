@@ -1,0 +1,19 @@
+{
+  "name": "Rama",
+  "version": "0.1.1",
+  "description": "Rama App Version 1",
+  "author": "Katherine Currier <kcurrier@brandeis.edu> ",
+  "scripts": {
+    "start": "node --harmony ./app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.4",
+    "mongodb": "^1.4.7",
+    "mongoose": "^3.8.13",
+    "logfmt": "^1.1.2"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
