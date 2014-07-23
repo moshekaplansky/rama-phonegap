@@ -193,6 +193,7 @@
   </script>
   <!-- End SlidesJS Required -->
         <!--Chatbox and mic images-->
+    <button display: block; onclick="sp.recognize()"><img id="micbtn" src="img/mic-btn.png" draggable="false"></img></button>
     <div align="center" id="chatbox">
       <img src="img/chatbox2.png" class="img-reponsive" style="width:80%;height:auto;opacity:.7">
       
@@ -214,10 +215,9 @@
 		  <div class="back" onclick="hideDivs(); showDiv('original');"> <--Back</div>
 <div onclick="handler.load('biography');">Biography</div>
 <div onclick="handler.load('career');">Career</div>
-</span>
-
+          
 <span onmouseover="this.style.cursor='pointer'" style="visibility:hidden;" id="piece_categories">
-	  <div class="back" onclick="hideDivs(); showDiv('original');"><-- Back</div>
+	  <div class="back" onclick="hideDivs(); showDiv('original');">Back</div>
 
 <div onclick="handler.load('style');">Style</div>
 <div onclick="handler.load('medium');">Medium</div>
@@ -257,7 +257,7 @@
 </div>
       <br/>
       
-      <br/><button onclick="sp.recognize()"><img id="micbtn" src="img/mic-btn.png" draggable="false"></img></button>
+      <br/>
     </div>
 
   <!-- /Welcome screen -->
