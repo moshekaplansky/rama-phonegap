@@ -1,3 +1,6 @@
+
+
+
 function hideDivs(){
 	var string = "_categories";
 	var array = ["paintings", "original", "artist", "piece"];
