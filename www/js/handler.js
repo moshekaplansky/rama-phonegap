@@ -38,17 +38,37 @@ load: function(result)
 	
             result = result.toLowerCase();
             var pieces = [];
+            serverURL = "http://leiner.cs-i.brandeis.edu:9000/";
+            
 
             //load database pieces into variable pieces
     		$.ajax({
         		type: "GET",
-        		url: "/model/rose",
+        		url: serverURL + "/model/rose",
     		}).done(function(db_pieces) {
     				//each item is a piece
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
 					
+				if (result.match("back") == "back"){
+					hideDivs();
+					if (document.getElementById("original_categories").style.visibility="visible")
+					{
+						showDiv('paintings'); 
+						document.getElementById('current').style.visibility ='hidden';
+					} 
+					else if (document.getElementById("artist_categories").style.visibility="visible")
+					{
+						showDiv('original');
+					}
+					else if (document.getElementById("piece_categories").style.visibility="visible")
+					{
+						showDiv('original');
+					}
+				}
+				
+				 
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
 					pieces.forEach(function(piece) {
