@@ -124,14 +124,14 @@
   <!-- /SlidesJS Required: -->        
   </head>
   <body onhashchange="getURL()">
-        <!--<div class="app"></div>-->
+        <div class="app"></div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/speech.js"></script>
         <script type="text/javascript" src="js/handler.js"></script>
         <script src="js/model.js"></script>
         <script src="js/view.js"></script>
-        <script src="js/controller.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -387,7 +387,7 @@
       document.getElementById("page-title").innerHTML = document.URL.charAt(22).toUpperCase() + document.URL.slice(23);
     }
     getURL();
-  </script>
+    </script>
 
 
   </body>
