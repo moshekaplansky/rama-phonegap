@@ -48,8 +48,10 @@ load: function(result)
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
+    				alert(document.getElementById("paintings_categories").style.visibility);
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
+					alert(pieces.length);
 					pieces.forEach(function(piece) {
 						alert(JSON.stringify(piece)+"="+result);
 						var name = piece.piece_basics.title.toLowerCase();
