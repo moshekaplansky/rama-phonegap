@@ -9,6 +9,7 @@ recognize: function(){
             result = result.substring(2, result.length - 2);
             alert("marked " + results);
             handler.load(result);
+            window.open(url);
         }
     
         function failCallback(error){

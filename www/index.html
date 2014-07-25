@@ -23,6 +23,23 @@
 	<script>
 		app.initialize();
 	</script>
+	<script>
+	var qr ={
+		scanner: function(){
+	   cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+	}
+}
+	</script>
 
 </head>
 
@@ -42,6 +59,13 @@
       	<button type="button" class="btn btn-default btn-lg pull-right" >
       		<span class="glyphicon glyphicon-phone-alt"></span>
 		</button>
+
+
+
+
+
+
+
       </a>
       <div id="page-title">
 	  </div>
@@ -50,12 +74,15 @@
 	
 	<!-- Triggered when welcome	screen is automatically loaded ... Hides when other pages load -->
 	<div id="welcome-view" class="view">
+      	<button type="button" class="btn btn-default btn-lg" onclick="qr.scanner()">
+      		<span class="glyphicon glyphicon-camera"></span>
+		</button>
+      	<button type="button" class="btn btn-default btn-lg" onclick="encode()">
+      		<span class="glyphicon glyphicon-camera"></span>
+		</button>
 		
   <!-- SlidesJS Required: Start Slides -->
   <!-- The container is used to define the width of the slideshow -->
-  <div class="container">
-    Welcome to the Rose Art Museum App!  
-  </div>
   <!-- End SlidesJS Required: Start Slides -->
 
   <!-- SlidesJS Required: Link to jQuery -->
