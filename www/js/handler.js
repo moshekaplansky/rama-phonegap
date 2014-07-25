@@ -21,6 +21,7 @@ function piece() {
     this.piece_details = {audio_on_load:"", medium:"", style:"", summary:""}; 
 }
 
+//{categories: ["about the artist", "about the piece"], piece_basics: {title:"Blue-White", year:1960, artist:"Lichtenstein"}, piece_details:{audio_on_load:"hi.wav", medium:"oil", style:"modenist", summary:"yeah"},artist_details:{audio_on_load:"hi.wav",biography:"life.wav", career:"life.wav"}
 
 var current_piece = new piece();
 
@@ -36,7 +37,7 @@ load: function(result)
             result = result.toLowerCase();
             var pieces = [];
             serverURL = "http://leiner.cs-i.brandeis.edu:9000";
-            
+
 
             //load database pieces into variable pieces
     		$.ajax({
@@ -47,13 +48,15 @@ load: function(result)
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
-				alert(document.getElementById("paintings_categories").innerHTML);
-				alert(pieces.length);
+    				alert("HI");
+    				alert(document.getElementById("paintings_categories").style.visibility);
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
+					alert(pieces.length);
 					pieces.forEach(function(piece) {
+						alert(JSON.stringify(piece)+"="+result);
 						var name = piece.piece_basics.title.toLowerCase();
-						alert("pieces"+name);
+						alert(result+" "+name);
 						if (result.search(name) > -1)
 						{
 							alert(name);
