@@ -35,16 +35,17 @@ var handler = {
 
 load: function(result)
 {
+		alert(result);
 	
             result = result.toLowerCase();
             var pieces = [];
-            serverURL = "http://leiner.cs-i.brandeis.edu:9000/";
+            serverURL = "http://leiner.cs-i.brandeis.edu:9000";
             
 
             //load database pieces into variable pieces
     		$.ajax({
         		type: "GET",
-        		url: serverURL + "/model/rose",
+        		url: serverURL + "/pieces",
     		}).done(function(db_pieces) {
     				//each item is a piece
     				db_pieces.forEach(function(item) {
