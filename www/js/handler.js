@@ -45,10 +45,9 @@ load: function(result)
     		}).done(function(db_pieces) {
     				//each item is a piece
     				db_pieces.forEach(function(item) {
-    					alert(JSON.stringify(item));
     					pieces[pieces.length] = item;
     				});
-					
+				alert(document.getElementById("paintings_categories").innerHTML);	
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
 					pieces.forEach(function(piece) {
