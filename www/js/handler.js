@@ -47,7 +47,8 @@ load: function(result)
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
-				alert(document.getElementById("paintings_categories").innerHTML);	
+				alert(document.getElementById("paintings_categories").innerHTML);
+				alert(pieces.length);
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
 					pieces.forEach(function(piece) {
