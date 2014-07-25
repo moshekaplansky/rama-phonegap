@@ -1,6 +1,4 @@
 
-
-
 function hideDivs(){
 	var string = "_categories";
 	var array = ["paintings", "original", "artist", "piece"];
@@ -16,16 +14,15 @@ function showDiv(div_to_show)
 	document.getElementById(div_to_show+"_categories").style.visibility = "visible";
 }
 
-function piece(title, audio_on_load, image_on_load) {
-	this.title = title;
-    this.audio_on_load = audio_on_load;
-    this.image_on_load = image_on_load;
-    categories = ["about the artist", "about the piece"];
-    artist_info = {audio_on_load:"", biography:"", career:""};
-    piece_info = {audio_on_load:"", title:"", medium:"", style:"", year:"", dimensions:"", summary:""}; 
+function piece() {
+	this.piece_basics = {title:"", year:"", artist:"", dimensions:"", image:""};
+    this.categories = ["about the artist", "about the piece"];
+    this.artist_details = {audio_on_load:"", biography:"", career:""};
+    this.piece_details = {audio_on_load:"", medium:"", style:"", summary:""}; 
 }
 
-var current_piece = new piece("", "", "");
+
+var current_piece = new piece();
 
 
 
@@ -35,11 +32,10 @@ var handler = {
 
 load: function(result)
 {
-		alert(result);
 	
             result = result.toLowerCase();
             var pieces = [];
-            serverURL = "";//http://leiner.cs-i.brandeis.edu:9000";
+            serverURL = "http://leiner.cs-i.brandeis.edu:9000/";
             
 
             //load database pieces into variable pieces
@@ -52,28 +48,10 @@ load: function(result)
     					pieces[pieces.length] = item;
     				});
 					
-				if (result.match("back") == "back"){
-					hideDivs();
-					if (document.getElementById("original_categories").style.visibility="visible")
-					{
-						showDiv('paintings'); 
-						document.getElementById('current').style.visibility ='hidden';
-					} 
-					else if (document.getElementById("artist_categories").style.visibility="visible")
-					{
-						showDiv('original');
-					}
-					else if (document.getElementById("piece_categories").style.visibility="visible")
-					{
-						showDiv('original');
-					}
-				}
-				
-				 
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
 					pieces.forEach(function(piece) {
-						var name = piece.title.toLowerCase();
+						var name = piece.piece_basics.title.toLowerCase();
 						if (result.search(name) > -1)
 						{
 							alert(name);
@@ -90,24 +68,25 @@ load: function(result)
 				}
 				else if (document.getElementById("original_categories").style.visibility != "hidden")
 				{
-					current_piece.categories.forEach(function(utterance) {
-						utterance = utterance.toLowerCase();
-						if (result.search(utterance) > -1)
+					current_piece.categories.forEach(function(category) {
+						category = category.toLowerCase();
+						if (result.search(category) > -1)
 						{
 							hideDivs();
-							if (result.match(utterance) == "about the artist"){
-								document.getElementById("about-the-artist").src = current_piece.artist.audio_on_load;
+							if (result.match(category) == "about the artist"){
+								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
-								document.getElementById("career").src = current_piece.artist_info.career;								document.getElementById("biography").src = current_piece.artist_info.biography;
-								document.getElementById("biography").src = current_piece.artist_info.biography;
+								document.getElementById("career").src = current_piece.artist_details.career;								document.getElementById("biography").src = current_piece.artist_info.biography;
+								document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
 
 							}
-							else if (result.match(utterance) == "about the piece") {
-								document.getElementById("about-the-piece").src = current_piece.piece_info.audio_on_load;
+							else if (result.match(category) == "about the piece") {
+								document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
 								showDiv("piece");
-								document.getElementById("style").src = current_piece.piece_info.style;
-								document.getElementById("medium").src = current_piece.piece_info.medium;
+								document.getElementById("style").src = current_piece.piece_details.style;
+								document.getElementById("medium").src = current_piece.piece_details.medium;
+								document.getElementById("summary").src = current_piece.piece_details.summary;
 								document.getElementById("about-the-piece").play();
 
 							}
@@ -116,11 +95,9 @@ load: function(result)
 				}
 				else if (document.getElementById("artist_categories").style.visibility != "hidden")
 				{
-					for (prop in current_piece.artist_info) {
-						alert(prop);
+					for (prop in current_piece.artist_details) {
 						if (result.search(prop) > -1)
-						{
-							
+						{							
 							if (result.match(prop) == "biography"){
 								document.getElementById("biography").play();
 							}
@@ -133,38 +110,18 @@ load: function(result)
 				else if (document.getElementById("piece_categories").style.visibility != "hidden")
 				{
 				
-					for (prop in current_piece.piece_info) {
+					for (prop in current_piece.piece_details) {
 						if (result.search(prop) > -1)
 						{
 							if (result.match(prop) == "style"){
 								document.getElementById("style").play();
 							}
 							else if (result.match(prop) == "medium") {
-								alert(utterance);
 								document.getElementById("medium").play();
 							}
-							/*else if (result.match(prop) == "year") {
-								alert(utterance);
-								document.getElementById("subcategory").src = current_piece.piece_info.year;
-								document.getElementById("subcategory").play();
-							}
-							else if (result.match(prop) == "dimensions") {
-								alert(utterance);
-								document.getElementById("subcategory").src = current_piece.piece_info.dimensions;
-								document.getElementById("subcategory").play();
-							}
 							else if (result.match(prop) == "summary") {
-								alert(utterance);
-								document.getElementById("subcategory").src = current_piece.piece_info.summary;
-								document.getElementById("subcategory").play();
-							}
-							else if (result.match(prop) == "title") {
-								alert(utterance);
-								document.getElementById("subcategory").src = current_piece.piece_info.title;
-								document.getElementById("subcategory").play();
-							}*/
-						
-							
+								document.getElementById("summary").play();
+							}							
 						}
 					}
 				}		
