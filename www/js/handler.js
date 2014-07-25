@@ -33,7 +33,6 @@ var handler = {
 load: function(result)
 {
 	
-	alert(result);
             result = result.toLowerCase();
             var pieces = [];
             serverURL = "http://leiner.cs-i.brandeis.edu:9000";
@@ -46,6 +45,7 @@ load: function(result)
     		}).done(function(db_pieces) {
     				//each item is a piece
     				db_pieces.forEach(function(item) {
+    					alert(JSON.stringify(item));
     					pieces[pieces.length] = item;
     				});
 					
