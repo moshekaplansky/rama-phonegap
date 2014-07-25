@@ -51,6 +51,7 @@ load: function(result)
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
 					pieces.forEach(function(piece) {
+						alert(JSON.stringify(piece)+"="+result);
 						var name = piece.piece_basics.title.toLowerCase();
 						alert(result+" "+name);
 						if (result.search(name) > -1)
