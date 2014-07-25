@@ -33,9 +33,10 @@ var handler = {
 load: function(result)
 {
 	
+	alert(result);
             result = result.toLowerCase();
             var pieces = [];
-            serverURL = "http://leiner.cs-i.brandeis.edu:9000/";
+            serverURL = "http://leiner.cs-i.brandeis.edu:9000";
             
 
             //load database pieces into variable pieces
@@ -52,6 +53,7 @@ load: function(result)
 				{
 					pieces.forEach(function(piece) {
 						var name = piece.piece_basics.title.toLowerCase();
+						alert("pieces"+name);
 						if (result.search(name) > -1)
 						{
 							alert(name);
