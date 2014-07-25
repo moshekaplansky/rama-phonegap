@@ -48,6 +48,7 @@ load: function(result)
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
+    				alert("HI");
     				alert(document.getElementById("paintings_categories").style.visibility);
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
