@@ -39,7 +39,7 @@ load: function(result)
 	
             result = result.toLowerCase();
             var pieces = [];
-            serverURL = "http://leiner.cs-i.brandeis.edu:9000";
+            serverURL = "";//http://leiner.cs-i.brandeis.edu:9000";
             
 
             //load database pieces into variable pieces
