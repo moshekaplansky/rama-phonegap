@@ -80,7 +80,7 @@ load: function(result)
 								alert("show artist");
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
-								document.getElementById("career").src = current_piece.artist_details.career;								document.getElementById("biography").src = current_piece.artist_info.biography;
+								document.getElementById("career").src = current_piece.artist_details.career;								
 								document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
 
@@ -101,7 +101,7 @@ load: function(result)
 				else if (document.getElementById("artist_categories").style.visibility != "hidden")
 				{
 					for (prop in current_piece.artist_details) {
-						alert("prop:"+prop);
+						alert("prop:"+prop+" "+result);
 						if (result.search(prop) > -1)
 						{							
 							if (result.match(prop) == "biography"){
