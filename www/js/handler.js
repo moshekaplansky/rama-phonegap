@@ -3,6 +3,7 @@ function hideDivs(){
 	var string = "_categories";
 	var array = ["paintings", "original", "artist", "piece"];
 	array.forEach(function(category){
+		alert(category+string+"!");
 		document.getElementById(category+string).style.visibility = "hidden";
 	});
 }
