@@ -48,19 +48,15 @@ load: function(result)
     				db_pieces.forEach(function(item) {
     					pieces[pieces.length] = item;
     				});
-    				alert("HI");
-    				alert(document.getElementById("paintings_categories").style.visibility);
+    			
 				if (document.getElementById("paintings_categories").style.visibility != "hidden")
 				{
-					alert(pieces.length);
 					pieces.forEach(function(piece) {
-						alert(JSON.stringify(piece)+"="+result);
 						var name = piece.piece_basics.title.toLowerCase();
-						alert(result+" "+name);
 						if (result.search(name) > -1)
 						{
-							alert(name);
-							new_name = name.replace(" ", "_");
+							alert(JSON.stringify(piece)+"="+result);
+							new_name = name.replace(" ", "");
 							document.getElementById("current").style.visibility = "visible";
 							document.getElementById("current_painting").src = new_name+".jpg";
 							document.getElementById("current_title").innerHTML = name;
@@ -73,12 +69,15 @@ load: function(result)
 				}
 				else if (document.getElementById("original_categories").style.visibility != "hidden")
 				{
+					alert(current_piece.categories);
 					current_piece.categories.forEach(function(category) {
 						category = category.toLowerCase();
 						if (result.search(category) > -1)
 						{
+							alert("hide")
 							hideDivs();
 							if (result.match(category) == "about the artist"){
+								alert("show artist");
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
 								document.getElementById("career").src = current_piece.artist_details.career;								document.getElementById("biography").src = current_piece.artist_info.biography;
@@ -87,6 +86,7 @@ load: function(result)
 
 							}
 							else if (result.match(category) == "about the piece") {
+								alert("show piece");
 								document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
 								showDiv("piece");
 								document.getElementById("style").src = current_piece.piece_details.style;
@@ -101,6 +101,7 @@ load: function(result)
 				else if (document.getElementById("artist_categories").style.visibility != "hidden")
 				{
 					for (prop in current_piece.artist_details) {
+						alert("prop:"+prop);
 						if (result.search(prop) > -1)
 						{							
 							if (result.match(prop) == "biography"){
