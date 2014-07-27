@@ -74,12 +74,14 @@ load: function(result)
 						category = category.toLowerCase();
 						if (result.search(category) > -1)
 						{
-							alert("hide")
+							alert("hide");
+							
 							hideDivs();
 							if (result.match(category) == "about the artist"){
 								alert("show artist");
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
+								alert(current_piece.artist_details);
 								document.getElementById("career").src = current_piece.artist_details.career;								
 								document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
