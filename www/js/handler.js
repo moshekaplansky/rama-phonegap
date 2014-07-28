@@ -11,6 +11,7 @@ function hideDivs(){
 
 function showDiv(div_to_show)
 {
+	alert(div_to_show);
 	alert(document.getElementById(div_to_show+"_categories").innerHTML);
 	document.getElementById(div_to_show+"_categories").style.visibility = "visible";
 }
