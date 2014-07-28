@@ -74,7 +74,7 @@ load: function(result)
 						if (result.search(category) > -1)
 						{
 							
-							hideDivs();
+							//hideDivs();
 							if (result.match(category) == "about the artist"){
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
