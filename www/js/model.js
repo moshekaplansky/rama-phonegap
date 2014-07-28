@@ -21,7 +21,7 @@ RoseList.prototype.loadModel = function() {
     // send request to the server for the items in the list
     $.ajax({
         type: "GET",
-        url: myList.serverURL + "audios",
+        url: myList.serverURL + "pieces",
     }).done(function(audio) {
         myList.audio = audio;
         audio.map(function(x){x.id=x["_id"];});
@@ -32,7 +32,7 @@ RoseList.prototype.loadModel = function() {
 RoseList.prototype.getID = function(title) {
 	$.ajax({
 		type: "GET",
-		url: myList.serverURL + "audios",
+		url: myList.serverURL + "pieces",
 	}).done(function(audios) {
 		audios.forEach(function(clip) {
 			console.log(clip.name);
@@ -50,7 +50,7 @@ RoseList.prototype.getUrl = function(id, to_load, ta){
     saveThis = "";
     $.ajax({
         type: "GET",
-        url: myList.serverURL + "audios/" + id,
+        url: myList.serverURL + "pieces/" + id,
     }).done(function(audio){    
         myList.audio = audio;
         saveThing = JSON.stringify(myList.audio.url);

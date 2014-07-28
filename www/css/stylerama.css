@@ -19,8 +19,14 @@ bottom:35px;
 }
 
 #chatbox{
-	margin: 10px 13px 10px;
-	opacity: 0.4;
+	background-image:url('../img/chatbox2.png');
+	width:80%;
+	height:100%;
+	opacity:.7;
+	text-align: left;
+	color:black;
+
+
 }
 
 
@@ -66,4 +72,17 @@ body {
 	background-position:center;
     width: 30vw;
     height: 30vw;
+}
+#movers-row {
+	margin: -100px 0 0 100px;
+}
+#movers-row div {
+	width: 33.3%;
+	float: left;
+}
+#movers-row div img {
+	float: right;
+}
+#movers-row div button {
+	float: left;
 }

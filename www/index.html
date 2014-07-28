@@ -7,7 +7,6 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="css/styles.css" media="all" rel="stylesheet">
-    <link href="css/sliderjs.css" media="all" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/stylerama.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -41,6 +40,30 @@
 }
 	</script>
 
+<style>
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+/* END required styles */
+
+</style>
+
+
 </head>
 
 <!-- Start body ... onhashchange updates the title of the page -->
@@ -59,13 +82,6 @@
       	<button type="button" class="btn btn-default btn-lg pull-right" >
       		<span class="glyphicon glyphicon-phone-alt"></span>
 		</button>
-
-
-
-
-
-
-
       </a>
       <div id="page-title">
 	  </div>
@@ -74,46 +90,64 @@
 	
 	<!-- Triggered when welcome	screen is automatically loaded ... Hides when other pages load -->
 	<div id="welcome-view" class="view">
-      	<button type="button" class="btn btn-default btn-lg" onclick="qr.scanner()">
-      		<span class="glyphicon glyphicon-camera"></span>
-		</button>
-      	<button type="button" class="btn btn-default btn-lg" onclick="encode()">
-      		<span class="glyphicon glyphicon-camera"></span>
-		</button>
-		
-  <!-- SlidesJS Required: Start Slides -->
-  <!-- The container is used to define the width of the slideshow -->
-  <!-- End SlidesJS Required: Start Slides -->
 
-  <!-- SlidesJS Required: Link to jQuery -->
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <!-- End SlidesJS Required -->
-
-  <!-- SlidesJS Required: Link to jquery.slides.js -->
-  <script src="js/jquery.slides.min.js"></script>
-  <!-- End SlidesJS Required -->
-
-  <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
-  <script>
-    $(function() {
-      $('#slides').slidesjs({
-        width: 940,
-        height: 528,
-        navigation: false
-      });
-    });
-  </script>
-  <!-- End SlidesJS Required -->
-      	<!--Chatbox and mic images-->
 		<div align="center">
-			<img src="img/chatbox2.png" class="img-reponsive" style="width:80%;height:auto;opacity:.7">
-			<br/>
-			
+			 
+
+			<div style='text-align:center;padding-top:20px;'>
+			  
+			  <!-- 
+			  I would prefer the user use on-screen swipe gestures, so I'm commenting these out. With that, keep the onclick functions of these in mind in the case you'd like to do something cool with them. 
+			  
+			  <button onclick='mySwipe.prev()'>prev</button> 
+			  <button onclick='mySwipe.next()'>next</button>
+			  -->
+
+			</div>
+
+
+
+			<!-- Chatbox div -->
+			<div id="chatbox" class="img-responsive">
+				<i align="center">The Rose Art Museum App</i>
+				<br/>
+				<br/>
+				There are two seamless ways to interact with RAMA:
+				<br/>
+				Either tap the camera button to scan the artwork's QR code (located on the wall) 
+				<br/>
+				or
+				<br/>
+				Tap the microphone button to tell us which app you would like to look at. 
+				<br/>
+				<br/>
+				If you have any questions, tap the phone icon on the top bar to be routed to one of our curators.
+
+			</div>
+			<!-- /Chatbox image -->
+
+
+			<!-- Creates space between chatbox and buttons-->		
+			<br/>			
 			<br/> 
+			<br/> 
+			<br/> 
+			<br/> 
+			<!-- /Creates space between chatbox and buttons-->
 
-			<img onclick="sp.recognize()" id="micbtn" src="img/mic-btn.png" draggable="false"></img>
+			<div id="movers-row">
+				<!-- Buttons-->
+				<div>
+			      	<button type="button" class="btn btn-default btn-lg" onclick="qr.scanner()">
+			      		<span class="glyphicon glyphicon-camera"></span>
+					</button>
+				</div>
+				<div>
+					<img onclick="sp.recognize()" id="micbtn" src="img/mic-btn.png" draggable="false"></img>
+				</div>
+				<!-- /Buttons-->
+			</div>
 		</div>
-
 	</div>
 	<!-- /Welcome screen -->
 	
@@ -123,29 +157,40 @@
 
    
 		<!-- STEVEN'S STUFF-->
+<div align="center" id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
+			  <div class='swipe-wrap'>
+			    <div><img width="300px" height="300px" src="img/1.gif"></img></div>
+			    <div><img width="300px" height="300px" src="img/1.gif"></img></div>
+			    <div><img width="300px" height="300px" src="img/1.gif"></img></div>
+			    <div><img width="300px" height="300px" src="img/1.gif"></img></div>
+			    <div><img width="300px" height="300px" src="img/1.gif"></img></div>
+			  </div>
+			</div>
+
 		<span id="current"><img src="" id="current_painting"><span id="current_title"></span></span>
 
 		<span  id="paintings_categories" style="visibility:visible;position:fixed;top:30px;" onmouseover="this.style.cursor='pointer'">
 			<div onclick="handler.load('blue white')" class="square" title="Forget it! Forget me!" style="background-image: url('img/forgetItForgetMe.jpg');"></div>
 		</span>
-		<span onmouseover="this.style.cursor='pointer'" id="original_categories" style="visibility:hidden;">
+		<span id="original_categories" style="visibility:hidden;">
 
-			<div class="back" onclick="hideDivs(); showDiv('paintings'); document.getElementById('current').style.visibility ='hidden';"><--Back</div>
+			<div class="back" onclick="hideDivs(); showDiv('paintings'); document.getElementById('current').style.visibility ='hidden';">Back</div>
 			<div onclick="handler.load('about the artist');">About the artist</div>
 			<div onclick="handler.load('about the piece');">About the piece</div>
 		</span>
-		<span onmouseover="this.style.cursor='pointer'" id="artist_categories" style="visibility:hidden;">
-			<div class="back" onclick="hideDivs(); showDiv('original');"> <--Back</div>
+		<span id="artist_categories" style="visibility:hidden;">
+			<div class="back" onclick="hideDivs(); showDiv('original');"> Back</div>
 			<div onclick="handler.load('biography');">Biography</div>
 			<div onclick="handler.load('career');">Career</div></span>
 		</span>
-		<span onmouseover="this.style.cursor='pointer'" id="piece_categories" style="visibility:hidden;">
+		<span id="piece_categories" style="visibility:hidden;">
 			<div class="back" onclick="hideDivs(); showDiv('original');">Back</div>
 			<div onclick="handler.load('style');">Style</div>
 			<div onclick="handler.load('medium');">Medium</div>
 			<div onclick="handler.load('summary');">Summary</div>
 		</span>		
 		<!-- /STEVEN'S STUFF-->
+
  <audio controls style="visibility:hidden">
   <source src="" id="biography">
   Your browser does not support this audio format.
@@ -156,16 +201,13 @@
   Your browser does not support this audio format.
 </audio>
 
-    <audio controls style="visibility:hidden">
-  <source src="" id="about-the-artist">
+    <audio autoplay="true" id="about-the-artist" src="" controls>
   Your browser does not support this audio format.
 </audio>
 
-    <audio controls style="visibility:hidden">
-  <source src="" id="about-the-piece">
+    <audio id="about-the-piece" controls src="">
   Your browser does not support this audio format.
-</audio>
-
+</audio> 
 
     <audio controls style="visibility:hidden">
   <source src="" id="style">
@@ -183,7 +225,6 @@
   Your browser does not support this audio format.
 </audio>
 
-		
 		
 		
 		
@@ -332,7 +373,7 @@
     <script src="js/main.js"></script>
     <script>  
 	    function getURL(){
-			document.getElementById("page-title").innerHTML = document.URL.charAt(22).toUpperCase() + document.URL.slice(23);
+			document.getElementById("page-title").innerHTML = document.URL.charAt(37).toUpperCase() + document.URL.slice(38);
 		}
 		getURL();
 	</script>
@@ -344,5 +385,26 @@
 	// when the document has been fully loaded, all the roseApp.start() method
 	$(document).ready(roseApp.start());
 	</script>
+
+
+<script src='js/swipe.js'></script>
+<script>
+
+// pure JS
+var elem = document.getElementById('mySwipe');
+window.mySwipe = Swipe(elem, {
+  // startSlide: 4,
+  // auto: 3000,
+  // continuous: true,
+  // disableScroll: true,
+  // stopPropagation: true,
+  // callback: function(index, element) {},
+  // transitionEnd: function(index, element) {}
+});
+
+// with jQuery
+// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+
+</script>
 
 </html>
