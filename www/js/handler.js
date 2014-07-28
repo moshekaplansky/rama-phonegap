@@ -11,7 +11,6 @@ function hideDivs(){
 
 function showDiv(div_to_show)
 {
-	alert(document.getElementById(div_to_show+"_categories").innerHTML);
 	document.getElementById(div_to_show+"_categories").style.visibility = "visible";
 }
 
@@ -85,7 +84,7 @@ load: function(result)
 							}
 							else if (result.match(category) == "about the piece") {
 								document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
-								alert("yes");
+							
 								showDiv("piece");
 								document.getElementById("style").src = current_piece.piece_details.style;
 								document.getElementById("medium").src = current_piece.piece_details.medium;
