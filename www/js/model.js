@@ -32,7 +32,7 @@ RoseList.prototype.loadModel = function() {
 RoseList.prototype.getID = function(title) {
 	$.ajax({
 		type: "GET",
-		url: myList.serverURL + "pieces",
+		url: myList.serverURL + "audios",
 	}).done(function(audios) {
 		audios.forEach(function(clip) {
 			console.log(clip.name);

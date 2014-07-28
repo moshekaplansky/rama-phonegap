@@ -76,44 +76,46 @@ load: function(result)
 							hideDivs();
 							if (result.match(category) == "about the artist"){
 
-								/*audioElement.setAttribute('src', ;
-								audioElement.setAttribute('controls', true);
-								audioElement.setAttribute('preload', true);
-								audioElement.setAttribute('type', 'audio/wav');
-								document.getElementById("about-the-artist").appendChild(audioElement);
-								audioElement.addEventListener("load", function(){
-									audioElement.play();
-								}, true);
-
-								alert(current_piece.artist_details.audio_on_load);
-								audioElement.load();
-
-								<script type="text/javascript">var audioElement =document.createElement('audio');
+								/*
 							
 								audioElement.setAttribute("preload", "auto");
 								audioElement.autobuffer = true;
 								var source1 = document.createElement('source');
 								source1.type= 'audio/wav';
 								source1.src = 'current_piece.artist_details.audio_on_load';
-								audioElement.appendChild(source1);</script><button onclick="audioElement.load();"> Button</button> */
+								audioElement.appendChild(source1);</script><button onclick="audioElement.load();"> Button</button> 
 								
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
 
 								document.getElementById("career").src = current_piece.artist_details.career;								
 								document.getElementById("biography").src = current_piece.artist_details.biography;
+								document.getElementById("about-the-artist").play(); */
+
+								document.getElementById("audio-player").src = current_piece.artist_details.audio_on_load;
+								showDiv("artist");
+
+								//document.getElementById("career").src = current_piece.artist_details.career;								
+								//document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
+
 
 
 							}
 							else if (result.match(category) == "about the piece") {
-								document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
-							
+								/*document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
 								showDiv("piece");
 								document.getElementById("style").src = current_piece.piece_details.style;
 								document.getElementById("medium").src = current_piece.piece_details.medium;
 								document.getElementById("summary").src = current_piece.piece_details.summary;
-								document.getElementById("about-the-piece").play();
+								document.getElementById("about-the-piece").play(); */
+
+								document.getElementById("audio-player").src = current_piece.piece_details.audio_on_load;
+								showDiv("piece");
+								//document.getElementById("style").src = current_piece.piece_details.style;
+								//document.getElementById("medium").src = current_piece.piece_details.medium;
+								//document.getElementById("summary").src = current_piece.piece_details.summary;
+								document.getElementById("about-the-artist").play();
 
 							}
 						}
