@@ -56,7 +56,6 @@ load: function(result)
 						var name = piece.piece_basics.title.toLowerCase();
 						if (result.search(name) > -1)
 						{
-							alert(JSON.stringify(piece)+"="+result);
 							new_name = name.replace(" ", "");
 							document.getElementById("current").style.visibility = "visible";
 							document.getElementById("current_painting").src = new_name+".jpg";
@@ -79,7 +78,6 @@ load: function(result)
 							if (result.match(category) == "about the artist"){
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
-								alert(current_piece.artist_details);
 								document.getElementById("career").src = current_piece.artist_details.career;								
 								document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
