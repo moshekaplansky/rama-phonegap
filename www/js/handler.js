@@ -78,13 +78,6 @@ load: function(result)
 
 								/*
 							
-								audioElement.setAttribute("preload", "auto");
-								audioElement.autobuffer = true;
-								var source1 = document.createElement('source');
-								source1.type= 'audio/wav';
-								source1.src = 'current_piece.artist_details.audio_on_load';
-								audioElement.appendChild(source1);</script><button onclick="audioElement.load();"> Button</button> 
-								
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
 
@@ -94,27 +87,15 @@ load: function(result)
 
 								document.getElementById("audio-player").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
-
-								//document.getElementById("career").src = current_piece.artist_details.career;								
-								//document.getElementById("biography").src = current_piece.artist_details.biography;
 								document.getElementById("about-the-artist").play();
 
 
 
 							}
 							else if (result.match(category) == "about the piece") {
-								/*document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
-								showDiv("piece");
-								document.getElementById("style").src = current_piece.piece_details.style;
-								document.getElementById("medium").src = current_piece.piece_details.medium;
-								document.getElementById("summary").src = current_piece.piece_details.summary;
-								document.getElementById("about-the-piece").play(); */
 
 								document.getElementById("audio-player").src = current_piece.piece_details.audio_on_load;
 								showDiv("piece");
-								//document.getElementById("style").src = current_piece.piece_details.style;
-								//document.getElementById("medium").src = current_piece.piece_details.medium;
-								//document.getElementById("summary").src = current_piece.piece_details.summary;
 								document.getElementById("about-the-artist").play();
 
 							}
@@ -127,10 +108,12 @@ load: function(result)
 						if (result.search(prop) > -1)
 						{							
 							if (result.match(prop) == "biography"){
-								document.getElementById("biography").play();
+								document.getElementById("audio-player").src = current_piece.artist_details.biography;
+								document.getElementById("audio-player").play();
 							}
 							else if (result.match(prop) == "career") {
-								document.getElementById("career").play();
+								document.getElementById("audio-player").src = current_piece.artist_details.career;
+								document.getElementById("audio-player").play();
 							}
 						}
 					}
@@ -142,14 +125,13 @@ load: function(result)
 						if (result.search(prop) > -1)
 						{
 							if (result.match(prop) == "style"){
-								document.getElementById("style").play();
+								document.getElementById("audio-player").src = current_piece.piece_details.style;
+								document.getElementById("audio-player").play();
 							}
 							else if (result.match(prop) == "medium") {
-								document.getElementById("medium").play();
-							}
-							else if (result.match(prop) == "summary") {
-								document.getElementById("summary").play();
-							}							
+								document.getElementById("audio-player").src = current_piece.piece_details.medium;
+								document.getElementById("audio-player").play();
+							}						
 						}
 					}
 				}		
