@@ -3,7 +3,6 @@ function hideDivs(){
 	var string = "_categories";
 	var array = ["paintings", "original", "artist", "piece"];
 	array.forEach(function(category){
-		alert(category+string+"!");
 		document.getElementById(category+string).style.visibility = "hidden";
 	});
 }
@@ -12,6 +11,7 @@ function hideDivs(){
 
 function showDiv(div_to_show)
 {
+	alert(document.getElementById(div_to_show+"_categories").style.visibility);
 	document.getElementById(div_to_show+"_categories").style.visibility = "visible";
 }
 
@@ -70,16 +70,13 @@ load: function(result)
 				}
 				else if (document.getElementById("original_categories").style.visibility != "hidden")
 				{
-					alert(current_piece.categories);
 					current_piece.categories.forEach(function(category) {
 						category = category.toLowerCase();
 						if (result.search(category) > -1)
 						{
-							alert("hide");
 							
 							hideDivs();
 							if (result.match(category) == "about the artist"){
-								alert("show artist");
 								document.getElementById("about-the-artist").src = current_piece.artist_details.audio_on_load;
 								showDiv("artist");
 								alert(current_piece.artist_details);
@@ -89,7 +86,6 @@ load: function(result)
 
 							}
 							else if (result.match(category) == "about the piece") {
-								alert("show piece");
 								document.getElementById("about-the-piece").src = current_piece.piece_details.audio_on_load;
 								showDiv("piece");
 								document.getElementById("style").src = current_piece.piece_details.style;
