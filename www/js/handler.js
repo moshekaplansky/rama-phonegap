@@ -53,6 +53,7 @@ load: function(result)
 				{
 					pieces.forEach(function(piece) {
 						var name = piece.piece_basics.title.toLowerCase();
+						alert(name +"="+result);
 						if (result.search(name) > -1)
 						{
 							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
