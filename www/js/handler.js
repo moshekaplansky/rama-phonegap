@@ -1,4 +1,31 @@
 
+var continue_playing = true;
+
+function play_audio(doc, audio)
+{
+	audio_array = audio.split(',');
+	if (audio_array.length == 1)
+	{
+		doc.src = audio_array[0];
+		doc.play();
+	}  
+	else  
+	{
+		for (int i=0; i<audio.length; i++)
+		{
+			if (continue_playing == true) 
+			{
+				
+				doc.src = audio[i];
+				var duration = audio[i].duration;
+				doc.play();
+				setTimeout(function(){alert("Continue or enough?");},duration);
+			}
+		}
+	}
+}
+
+
 function hideDivs(){
 	var string = "_categories";
 	var array = ["original", "artist", "piece"];
@@ -31,7 +58,12 @@ var current_piece = new piece();
 
 var handler = {
 
-
+setContinuePlaying:  function(boolvalue)
+{
+	continue_playing = boolvalue;
+	if (continue_playing == false)
+		document.getElementById("audio-player").pause();
+} 
 
 load: function(result)
 {
@@ -53,11 +85,8 @@ load: function(result)
 				{
 					pieces.forEach(function(piece) {
 						var name = piece.piece_basics.title.toLowerCase();
-						alert(name +"="+result);
 						if (result.search(name) > -1)
 						{
-							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
-
 							new_name = name.replace(" ", "");
 							document.getElementById("current_painting").src = '../img/forgetIt';
 							document.getElementById("current_title").innerHTML = name;
@@ -65,12 +94,11 @@ load: function(result)
 							hideDivs();
 							showDiv("original");
 							current_piece = piece;
-							alert("AFTER");
-							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
-
 						}
 					});
 				}
+				audio-player = document.getElementById("audio-player");
+				
 				if (document.getElementById("original_categories").style.display != "none")
 				{
 					current_piece.categories.forEach(function(category) {
@@ -79,15 +107,12 @@ load: function(result)
 						{
 							hideDivs();
 							if (result.match(category) == "about the artist"){
-								document.getElementById("audio-player").src = current_piece.artist_details.audio_on_load;
+								play_audio(audio-player, current_piece.artist_details.audio_on_load)
 								showDiv("artist");
-								document.getElementById("audio-player").play();
 							}
 							else if (result.match(category) == "about the piece") {
-								document.getElementById("audio-player").src = current_piece.piece_details.audio_on_load;
+								play_audio(audio-player, current_piece.piece_details.audio_on_load);
 								showDiv("piece");
-								document.getElementById("audio-player").play();
-
 							}
 						}
 					});
@@ -98,12 +123,11 @@ load: function(result)
 						if (result.search(prop) > -1)
 						{							
 							if (result.match(prop) == "biography"){
-								document.getElementById("audio-player").src = current_piece.artist_details.biography;
-								document.getElementById("audio-player").play();
+								play_audio(audio-player, current_piece.artist_details.biography);
+
 							}
 							else if (result.match(prop) == "career") {
-								document.getElementById("audio-player").src = current_piece.artist_details.career;
-								document.getElementById("audio-player").play();
+								play_audio(audio-player, current_piece.artist_details.career);
 							}
 						}
 					}
@@ -115,12 +139,10 @@ load: function(result)
 						if (result.search(prop) > -1)
 						{
 							if (result.match(prop) == "style"){
-								document.getElementById("audio-player").src = current_piece.piece_details.style;
-								document.getElementById("audio-player").play();
+								play_audio(audio-player, current_piece.piece_details.style);
 							}
 							else if (result.match(prop) == "medium") {
-								document.getElementById("audio-player").src = current_piece.piece_details.medium;
-								document.getElementById("audio-player").play();
+								play_audio(audio-player, current_piece.piece_details.medium);
 							}						
 						}
 					}
