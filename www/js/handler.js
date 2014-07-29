@@ -55,6 +55,8 @@ load: function(result)
 						var name = piece.piece_basics.title.toLowerCase();
 						if (result.search(name) > -1)
 						{
+							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
+
 							new_name = name.replace(" ", "");
 							document.getElementById("current").style.display = "block";
 							document.getElementById("current_painting").src = current_piece.picture;
@@ -62,7 +64,6 @@ load: function(result)
 							//change div back to original_categories
 							hideDivs();
 							showDiv("original");
-							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
 							current_piece = piece;
 							alert("AFTER");
 							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
