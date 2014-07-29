@@ -1,7 +1,7 @@
 
 function hideDivs(){
 	var string = "_categories";
-	var array = ["paintings", "original", "artist", "piece"];
+	var array = ["original", "artist", "piece"];
 	array.forEach(function(category){
 		document.getElementById(category+string).style.display = "none";
 	});
@@ -56,8 +56,7 @@ load: function(result)
 						if (result.search(name) > -1)
 						{
 							new_name = name.replace(" ", "");
-							document.getElementById("current").style.display = "block";
-							document.getElementById("current_painting").src = current_piece.picture;
+							document.getElementById("current_painting").src = '../img/forgetIt';
 							document.getElementById("current_title").innerHTML = name;
 							//change div back to original_categories
 							hideDivs();
@@ -66,7 +65,7 @@ load: function(result)
 						}
 					});
 				}
-				else if (document.getElementById("original_categories").style.display != "none")
+				if (document.getElementById("original_categories").style.display != "none")
 				{
 					current_piece.categories.forEach(function(category) {
 						category = category.toLowerCase();
