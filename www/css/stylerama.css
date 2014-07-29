@@ -74,6 +74,14 @@ body {
     width: 30vw;
     height: 30vw;
 }
+.blue-white{
+	background-image:url('../img/BlueWhite.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+    width: 30vw;
+    height: 30vw;
+}
 #movers-row {
 	margin: -100px 0 0 100px;
 }

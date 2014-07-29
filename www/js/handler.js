@@ -20,7 +20,9 @@ function piece() {
     this.artist_details = {audio_on_load:"", biography:"", career:""};
     this.piece_details = {audio_on_load:"", medium:"", style:"", summary:""}; 
 }
-
+function reload(){
+	current_piece = "";
+}
 //{categories: ["about the artist", "about the piece"], piece_basics: {title:"Blue-White", year:1960, artist:"Lichtenstein"}, piece_details:{audio_on_load:"hi.wav", medium:"oil", style:"modenist", summary:"yeah"},artist_details:{audio_on_load:"hi.wav",biography:"life.wav", career:"life.wav"}
 
 var current_piece = new piece();
@@ -55,7 +57,7 @@ load: function(result)
 						{
 							new_name = name.replace(" ", "");
 							document.getElementById("current").style.display = "block";
-							document.getElementById("current_painting").src = new_name+".jpg";
+							document.getElementById("current_painting").src = current_piece.picture;
 							document.getElementById("current_title").innerHTML = name;
 							//change div back to original_categories
 							hideDivs();

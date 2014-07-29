@@ -155,6 +155,7 @@
 	<!-- Triggered when gallery	screen is automatically loaded ... Hides when other pages load -->
 	<div id="gallery-view" class="view">
 <table align="center">
+	<button onclick="handler.reload()">please</button>
 			<tr>
 				<td>
 					<a id="paintings_categories" onclick="roseApp.showView('Painting'); handler.load('forget it! forget me!')" title= "Forget it! Forget me!">
@@ -164,42 +165,10 @@
 					</a>
 				</td>
 				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
-					</a>
-				</td>
-				<td>
-					<a onclick="roseApp.showView('Painting')">
-					<div class="square"></div>
+					<a id="paintings_categories" onclick="roseApp.showView('Painting'); handler.load('blue white')" title= "Blue White">
+						<div class="blue-white" style="overflow:hidden; text-indent:100%;white-space:nowrap">
+							click this text
+						</div>
 					</a>
 				</td>
 				<td>
@@ -233,7 +202,7 @@
 	<!-- ARI TOSSED ALL OF STEVEN'S STUFF INTO A CENTERED DIV -->
 	<div align="center">
 
-		<div width="300px" height="300px" class="square"></div>
+		<div width="300px" height="300px" class="square"><img src="" id="current_painting"/></div>
 		
     <audio id="audio-player" src="" controls>
   Your browser does not support this audio format.
@@ -244,7 +213,7 @@
 
 <div style="background-color:white;width:80%;height:300px;opacity:.7;color:black;">
 
-		<span id="current" class="square"><img src="" id="current_painting"><span id="current_title"></span></span>
+		<span id="current"><span id="current_title"></span></span>
 
 		<span id="original_categories" style="display:none;">
 			
