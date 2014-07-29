@@ -89,7 +89,7 @@ load: function(result)
 						if (result.search(name) > -1)
 						{
 							new_name = name.replace(" ", "");
-							document.getElementById("current_painting").src = '../img/forgetIt';
+							document.getElementById("current_painting").src = current_piece.piece_basics.image;
 							document.getElementById("current_title").innerHTML = name;
 							//change div back to original_categories
 							hideDivs();
