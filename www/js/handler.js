@@ -62,7 +62,11 @@ load: function(result)
 							//change div back to original_categories
 							hideDivs();
 							showDiv("original");
+							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
 							current_piece = piece;
+							alert("AFTER");
+							alert(JSON.stringify(piece)+JSON.stringify(current_piece);
+
 						}
 					});
 				}
