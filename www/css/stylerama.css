@@ -67,6 +67,7 @@ body {
 	line-height: 1.4em;
 }
 .square {
+	background-image:url('../img/forgetItForgetMe.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center;
