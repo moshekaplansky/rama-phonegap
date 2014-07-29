@@ -3,6 +3,7 @@ var continue_playing = true;
 
 function play_audio(doc, audio)
 {
+	alert(audio);
 	audio_array = audio.split(',');
 	if (audio_array.length == 1)
 	{
@@ -16,8 +17,8 @@ function play_audio(doc, audio)
 			if (continue_playing == true) 
 			{
 				
-				doc.src = audio[i];
-				var duration = audio[i].duration;
+				doc.src = audio_array[i];
+				var duration = audio_array[i].duration;
 				doc.play();
 				setTimeout(function(){alert("Continue or enough?");},duration);
 			}
